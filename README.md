@@ -6,7 +6,7 @@ We present 16 qualitative cases of Visual Skill selection and application. For e
 
 These cases show what was selected and how Claude Opus 5 applied it. They are separate from the distilled-model results presented later in the paper. Use **Last**, **Next**, the case dropdown, or the keyboard arrow keys to move through the comparisons. Every preview is live and can be opened independently.
 
-| Direct comparison | Case | Task | Selected Visual Skill | No Skill | General Skill | Visual Skill |
+| Direct comparison | Case | Task | Visual Skill | No Skill | General Skill | Visual Skill Result |
 |---|---:|---|---|---|---|---|
 | [Open Case 01](https://web-skill-dag.github.io/Web_SKill_DAG/showcase/#case-01) | 01 | World Cup Live Experience | Stock Ticker Dashboard; Orken; Scroll-Synced Video | [Open](https://web-skill-dag.github.io/Web_SKill_DAG/cases/case-01/no-skill/) | [Open](https://web-skill-dag.github.io/Web_SKill_DAG/cases/case-01/general-skill/) | [Open](https://web-skill-dag.github.io/Web_SKill_DAG/cases/case-01/ours/) |
 | [Open Case 02](https://web-skill-dag.github.io/Web_SKill_DAG/showcase/#case-02) | 02 | Marketing Course Landing Page | Background Image Grid Motion | [Open](https://web-skill-dag.github.io/Web_SKill_DAG/cases/case-02/no-skill/) | [Open](https://web-skill-dag.github.io/Web_SKill_DAG/cases/case-02/general-skill/) | [Open](https://web-skill-dag.github.io/Web_SKill_DAG/cases/case-02/ours/) |
