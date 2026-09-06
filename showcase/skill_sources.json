@@ -1,5 +1,6 @@
 {
   "p-03": {
+    "ours-original": [],
     "ours-earlier": [
       {
         "skill": "center_out_photo_bloom_with_pointer_drift",
@@ -108,6 +109,7 @@
     ]
   },
   "p-04": {
+    "ours-original": [],
     "ours-earlier": [
       {
         "skill": "aperture_framed_scroll_scrubbed_clip",
@@ -154,6 +156,7 @@
     "ours-v2": []
   },
   "p-05": {
+    "ours-original": [],
     "ours-earlier": [
       {
         "skill": "self_growing_thread_field_print",
@@ -352,6 +355,7 @@
     ]
   },
   "p-06": {
+    "ours-original": [],
     "ours-earlier": [
       {
         "skill": "ambient_lit_turntable_object_vitrine",
@@ -440,6 +444,7 @@
     ]
   },
   "p-13": {
+    "ours-original": [],
     "ours-earlier": [
       {
         "skill": "flip_forward_tile_to_fullscreen_detail",
@@ -558,6 +563,7 @@
     ]
   },
   "p-14": {
+    "ours-original": [],
     "ours-earlier": [
       {
         "skill": "scroll_scrubbed_frame_sequence_stage",
@@ -584,6 +590,7 @@
     "ours-v2": []
   },
   "p-15": {
+    "ours-original": [],
     "ours-earlier": [
       {
         "skill": "elastic_search_bar_with_extruded_result_rows",
@@ -742,6 +749,7 @@
     ]
   },
   "p-16": {
+    "ours-original": [],
     "ours-earlier": [
       {
         "skill": "booting_live_screen_stage",
@@ -840,6 +848,7 @@
     ]
   },
   "p-23": {
+    "ours-original": [],
     "ours-earlier": [
       {
         "skill": "water_shaped_period_row_with_in_column_time_scrub",
@@ -928,6 +937,7 @@
     ]
   },
   "p-24": {
+    "ours-original": [],
     "ours-earlier": [
       {
         "skill": "water_shaped_period_row_with_in_column_time_scrub",
@@ -1046,6 +1056,7 @@
     ]
   },
   "p-25": {
+    "ours-original": [],
     "ours-earlier": [
       {
         "skill": "luminous_outline_trio_orbit_stage",
@@ -1174,6 +1185,7 @@
     ]
   },
   "p-26": {
+    "ours-original": [],
     "ours-earlier": [
       {
         "skill": "scroll_flown_line_chart_growth",
@@ -1298,10 +1310,21 @@
         "host": "v0.app",
         "official_864": true,
         "match_type": "actual_selected"
+      },
+      {
+        "skill": "photo_piece_liftoff_with_centering_word",
+        "case_id": "codrops-0740",
+        "source": "Codrops",
+        "title": "Background Segment Effect",
+        "url": "http://tympanus.net/Development/SegmentEffect/",
+        "host": "tympanus.net",
+        "official_864": true,
+        "match_type": "manual_864_substitute"
       }
     ]
   },
   "p-33": {
+    "ours-original": [],
     "ours-earlier": [
       {
         "skill": "pointer_pushed_breathing_line_field",
@@ -1410,6 +1433,7 @@
     ]
   },
   "p-34": {
+    "ours-original": [],
     "ours-earlier": [
       {
         "skill": "hairline_thread_field_word_relief",
@@ -1436,6 +1460,7 @@
     "ours-v2": []
   },
   "p-35": {
+    "ours-original": [],
     "ours-earlier": [
       {
         "skill": "water_shaped_period_row_with_in_column_time_scrub",
@@ -1594,6 +1619,7 @@
     ]
   },
   "p-36": {
+    "ours-original": [],
     "ours-earlier": [
       {
         "skill": "continuous_fold_progress_model_viewer",
@@ -1682,6 +1708,7 @@
     ]
   },
   "p-43": {
+    "ours-original": [],
     "ours-earlier": [
       {
         "skill": "tile_zoom_out_pattern_reveal",
@@ -1830,6 +1857,7 @@
     ]
   },
   "p-44": {
+    "ours-original": [],
     "ours-earlier": [
       {
         "skill": "encoded_message_decoder_hero",
@@ -1958,6 +1986,7 @@
     ]
   },
   "p-45": {
+    "ours-original": [],
     "ours-earlier": [
       {
         "skill": "continuous_fold_progress_model_viewer",
@@ -2126,6 +2155,7 @@
     ]
   },
   "p-46": {
+    "ours-original": [],
     "ours-earlier": [
       {
         "skill": "booting_live_screen_stage",
@@ -2152,6 +2182,7 @@
     "ours-v2": []
   },
   "p-56": {
+    "ours-original": [],
     "ours-earlier": [
       {
         "skill": "dot_swarm_shape_cycler",
@@ -2240,6 +2271,7 @@
     ]
   },
   "p-57": {
+    "ours-original": [],
     "ours-earlier": [
       {
         "skill": "drag_ignited_orbiting_flame_chamber",
@@ -2298,6 +2330,7 @@
     ]
   },
   "p-58": {
+    "ours-original": [],
     "ours-earlier": [
       {
         "skill": "submerged_drifting_creature_field",
@@ -2426,6 +2459,7 @@
     ]
   },
   "p-59": {
+    "ours-original": [],
     "ours-earlier": [
       {
         "skill": "adjustable_open_water_scene",
@@ -2584,6 +2618,7 @@
     ]
   },
   "p-60": {
+    "ours-original": [],
     "ours-earlier": [
       {
         "skill": "orbitable_volumetric_plume_stage",
@@ -2702,6 +2737,7 @@
     ]
   },
   "p-61": {
+    "ours-original": [],
     "ours-earlier": [
       {
         "skill": "bowed_opaque_wipe_screen_handoff",
@@ -2728,6 +2764,7 @@
     "ours-v2": []
   },
   "p-62": {
+    "ours-original": [],
     "ours-earlier": [
       {
         "skill": "articulated_subject_posing_stage",
@@ -2806,6 +2843,7 @@
     ]
   },
   "p-63": {
+    "ours-original": [],
     "ours-earlier": [
       {
         "skill": "illustrated_scene_nook_explorer",
@@ -2839,9 +2877,21 @@
       }
     ],
     "ours-v1": [],
-    "ours-v2": []
+    "ours-v2": [
+      {
+        "skill": "studio_device_focus_scene",
+        "case_id": "codrops-0296",
+        "source": "Codrops",
+        "title": "Interactive 3D Device Showcase with Threepipe",
+        "url": "https://tympanus.net/Tutorials/DeviceShowcase",
+        "host": "tympanus.net",
+        "official_864": true,
+        "match_type": "manual_864_substitute"
+      }
+    ]
   },
   "p-64": {
+    "ours-original": [],
     "ours-earlier": [
       {
         "skill": "flaring_light_source_silhouette_loop",
@@ -2900,6 +2950,7 @@
     ]
   },
   "p-65": {
+    "ours-original": [],
     "ours-earlier": [
       {
         "skill": "drifting_iridescent_spheres_cover_scene",
