@@ -243,10 +243,10 @@
     "query": "Create a vivid and realistic 3D underwater coral reef scene: The tentacles of the coral towers sway with the waves, schools of fish gather and disperse at times, luminous jellyfish slowly rise to the surface, the sandy seabed ripples, and the floating bubble particles together create a serene and peaceful marine atmosphere.",
     "skill_selection": [
       {
-        "name": "drag_seeded_rising_bubble_field",
-        "title": "Pixi Sprite Bubbles",
-        "url": "https://codepen.io/JuanFuentes/full/jONVOOL",
-        "case_id": "codrops-0620"
+        "name": "submerged_drifting_creature_field",
+        "title": "Aurelia",
+        "url": "https://holtsetio.com/lab/aurelia/",
+        "case_id": "codrops-0153"
       }
     ],
     "screenshots": {
