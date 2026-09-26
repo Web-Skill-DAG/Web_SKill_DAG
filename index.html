@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WebViSE</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { min-height: 100%; }
+    body {
+      margin: 0;
+      display: grid;
+      place-items: center;
+      padding: 40px 20px;
+      background: #fff;
+      color: #000;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    main { width: min(700px, 100%); text-align: center; }
+    h1 { margin: 0 0 48px; font-size: clamp(34px, 7vw, 58px); font-weight: 600; }
+    nav { display: grid; gap: 28px; }
+    a {
+      display: block;
+      padding: 24px;
+      border: 1px solid #000;
+      color: #000;
+      text-decoration: none;
+    }
+    a:hover, a:focus-visible { background: #000; color: #fff; }
+    strong { display: block; margin-bottom: 8px; font-size: 22px; }
+    span { display: block; font-size: 14px; line-height: 1.5; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>WebViSE</h1>
+    <nav aria-label="WebViSE demonstrations">
+      <a href="./showcase/">
+        <strong>01 &nbsp; Website Showcase</strong>
+        <span>Interactive comparisons across the qualitative website collection</span>
+      </a>
+      <a href="./case_study/">
+        <strong>02 &nbsp; Case Study</strong>
+        <span>Guoqing Temple: Original Query vs. Skill-Expanded Query</span>
+      </a>
+      <a href="./internalization-case-study/">
+        <strong>03 &nbsp; Internalization Case Study</strong>
+        <span>Pointer Lab: Qwen3.8-27B, +WebViSE, NoSkill-SFT, and WebViSE-SFT</span>
+      </a>
+    </nav>
+  </main>
+</body>
+</html>

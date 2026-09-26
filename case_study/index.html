@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Guoqing Temple Case Study</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; min-height: 100%; background: #fff; color: #000; }
+    body { font-family: Arial, Helvetica, sans-serif; }
+    header { padding: 24px; text-align: center; border-bottom: 1px solid #000; }
+    h1 { margin: 0 0 8px; font-size: clamp(24px, 4vw, 38px); font-weight: 600; }
+    header p { margin: 0; font-size: 14px; }
+    main { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    section { min-width: 0; padding: 18px; }
+    section + section { border-left: 1px solid #000; }
+    .heading { display: flex; align-items: baseline; justify-content: space-between; gap: 14px; margin-bottom: 14px; }
+    h2 { margin: 0; font-size: 20px; }
+    a { color: #000; font-size: 13px; }
+    iframe { display: block; width: 100%; height: calc(100vh - 145px); min-height: 620px; border: 1px solid #000; background: #fff; }
+    @media (max-width: 900px) {
+      main { grid-template-columns: 1fr; }
+      section + section { border-left: 0; border-top: 1px solid #000; }
+      iframe { height: 75vh; min-height: 520px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Guoqing Temple Case Study</h1>
+    <p>The same website-generation model, with the Original Query and the Skill-Expanded Query.</p>
+  </header>
+  <main>
+    <section>
+      <div class="heading">
+        <h2>Original Query</h2>
+        <a href="./original/" target="_blank" rel="noopener">Open full page ↗</a>
+      </div>
+      <iframe src="./original/" title="Website generated from the Original Query"></iframe>
+    </section>
+    <section>
+      <div class="heading">
+        <h2>Skill-Expanded Query</h2>
+        <a href="./skill-expanded/" target="_blank" rel="noopener">Open full page ↗</a>
+      </div>
+      <iframe src="./skill-expanded/" title="Website generated from the Skill-Expanded Query"></iframe>
+    </section>
+  </main>
+</body>
+</html>

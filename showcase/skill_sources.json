@@ -1,0 +1,122 @@
+{
+  "p-03": [
+    {
+      "skill": "center_out_photo_bloom_with_pointer_drift",
+      "title": "How to Create a Motion Hover Effect for a Background Image Grid",
+      "url": "http://tympanus.net/Tutorials/ImageGridMotionEffect/",
+      "case_id": "codrops-0571"
+    }
+  ],
+  "p-06": [
+    {
+      "skill": "scroll_scrubbed_object_opening_walkthrough",
+      "title": "Apple-Style Scroll Animation  3D Product Explode",
+      "url": "https://v0-applestylescroll-momo.vercel.app",
+      "case_id": "v0-0129"
+    }
+  ],
+  "p-13": [
+    {
+      "skill": "blooming_accent_sheet_card_reveal",
+      "title": "Stack Motion Hover Effects",
+      "url": "http://tympanus.net/Development/StackMotionHoverEffects/",
+      "case_id": "codrops-0723"
+    }
+  ],
+  "p-16": [
+    {
+      "skill": "rippling_water_photo_backdrop",
+      "title": "Liquid Effect",
+      "url": "https://codepen.io/soju22/full/myVWBGa",
+      "case_id": "codrops-0085"
+    }
+  ],
+  "p-23": [
+    {
+      "skill": "water_shaped_period_row_with_in_column_time_scrub",
+      "title": "Surf Report Template",
+      "url": "http://tympanus.net/Development/SurfReport/",
+      "case_id": "codrops-0731"
+    }
+  ],
+  "p-24": [
+    {
+      "skill": "exploded_floor_stack_venue_explorer",
+      "title": "Interactive 3D Mall Map",
+      "url": "http://tympanus.net/Development/Interactive3DMallMap/",
+      "case_id": "codrops-0754"
+    }
+  ],
+  "p-33": [
+    {
+      "skill": "frosted_glass_now_playing_panel",
+      "title": "Music Player Component",
+      "url": "https://v0.app/templates/dNBIr19MEZl",
+      "case_id": "v0-1344"
+    }
+  ],
+  "p-35": [
+    {
+      "skill": "glance_board_with_looping_edge_light",
+      "title": "Animated Border Cards",
+      "url": "https://v0.app/templates/FPh26E3ZGGL",
+      "case_id": "v0-0728"
+    }
+  ],
+  "p-45": [
+    {
+      "skill": "rippling_sample_sheet_with_finish_swatches",
+      "title": "Simple Three.js matcap demo",
+      "url": "https://codepen.io/ksenia-k/full/ExqgveK",
+      "case_id": "codrops-0278"
+    }
+  ],
+  "p-56": [
+    {
+      "skill": "squash_and_bounce_mascot_loop_with_orbit_stage",
+      "title": "Mastering Theatre.js Animations: Learn to Create Dynamic Visuals",
+      "url": "https://bouncy.vercel.app/",
+      "case_id": "codrops-0383"
+    }
+  ],
+  "p-57": [
+    {
+      "skill": "adjustable_open_water_scene",
+      "title": "Waves",
+      "url": "https://david.li/waves/",
+      "case_id": "codrops-0817"
+    }
+  ],
+  "p-58": [
+    {
+      "skill": "submerged_drifting_creature_field",
+      "title": "Aurelia",
+      "url": "https://holtsetio.com/lab/aurelia/",
+      "case_id": "codrops-0153"
+    }
+  ],
+  "p-59": [
+    {
+      "skill": "pointer_bound_square_cutaway_over_turning_subject",
+      "title": "X-Ray Visualizer",
+      "url": "https://x-ray-visualizer-threejs-yh19.vercel.app/",
+      "case_id": "codrops-0124"
+    }
+  ],
+  "p-62": [
+    {
+      "skill": "sweep_scattered_plated_glass_sphere",
+      "title": "Ball of Glass with Attraction",
+      "url": "https://r3f-rapier-ball-of-glass.vercel.app/",
+      "case_id": "codrops-0034"
+    }
+  ],
+  "p-63": [
+    {
+      "skill": "studio_device_focus_scene",
+      "title": "Interactive 3D Device Showcase with Threepipe",
+      "url": "https://tympanus.net/Tutorials/DeviceShowcase",
+      "case_id": "codrops-0296"
+    }
+  ]
+}

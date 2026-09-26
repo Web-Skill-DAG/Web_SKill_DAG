@@ -1,0 +1,7 @@
+claude-agent-sdk
+numpy
+requests
+scikit-learn
+torch
+tqdm
+transformers

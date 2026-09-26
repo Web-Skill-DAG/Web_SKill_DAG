@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <title>Visual Skill Selection and Application</title>
+  <style>
+    * { box-sizing: border-box; }
+    :root {
+      color-scheme: light;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --ink: #111; --muted: #666; --line: #d9d9d9;
+      --panel: #fff; --accent: #111;
+    }
+    html, body { margin: 0; min-height: 100%; background: #fff; color: var(--ink); }
+    body { overflow-x: hidden; }
+    .shell { position: relative; min-height: 100vh; padding: 24px 26px 28px; }
+    header { display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center; margin-bottom: 18px; }
+    h1 { margin: 0; font-size: clamp(25px, 2.4vw, 42px); line-height: 1; letter-spacing: -.045em; font-weight: 630; }
+    .nav { display: flex; align-items: center; gap: 8px; }
+    button, select { border: 1px solid var(--line); border-radius: 999px; background: #fff; color: var(--ink); }
+    button { min-height: 42px; padding: 0 17px; cursor: pointer; font: 650 11px/1 inherit; letter-spacing: .02em; transition: .2s ease; }
+    select { width: min(290px, 34vw); min-height: 42px; padding: 0 38px 0 15px; cursor: pointer; font: 600 11px/1 inherit; text-overflow: ellipsis; }
+    button:hover { border-color: #111; background: #f4f4f4; transform: translateY(-1px); }
+    button:focus-visible, select:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .next { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .next:hover { background: #333; color: #fff; }
+    .case-copy { display: flex; align-items: center; min-width: 0; gap: 15px; margin: 4px 0 16px; padding-top: 14px; border-top: 1px solid var(--line); }
+    .index { flex: none; display: grid; place-items: center; min-width: 70px; height: 36px; padding: 0 12px; border-radius: 999px; background: var(--ink); color: #fff; font: 750 10px/1 ui-monospace, monospace; letter-spacing: .04em; text-transform: uppercase; }
+    .case-title { margin: 0 0 3px; font-size: 16px; letter-spacing: -.02em; }
+    .case-query { overflow: hidden; margin: 0; color: var(--muted); font-size: 11px; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; }
+    .comparison { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+    .result { min-width: 0; overflow: hidden; border: 1px solid var(--line); border-radius: 19px; background: var(--panel); box-shadow: 0 12px 32px rgba(0,0,0,.08); }
+    .result-head { display: flex; justify-content: space-between; gap: 10px; align-items: center; min-height: 58px; padding: 11px 14px; }
+    .method { display: flex; align-items: center; gap: 9px; min-width: 0; }
+    .method-number { color: #777; font: 10px/1 ui-monospace, monospace; }
+    .method strong { display: block; font-size: 13px; }
+    .method small { display: block; margin-top: 3px; color: var(--muted); font-size: 9px; letter-spacing: .05em; text-transform: uppercase; }
+    .open { color: #555; text-decoration: none; font-size: 15px; }
+    .frame-wrap { position: relative; border-block: 1px solid var(--line); background: #fff; }
+    iframe { display: block; width: 100%; height: min(57vh, 680px); min-height: 440px; border: 0; background: white; }
+    .meta { height: 154px; overflow: auto; padding: 14px 15px 16px; scrollbar-width: thin; }
+    .meta-label { margin-bottom: 8px; color: #666; font: 700 8px/1 ui-monospace, monospace; letter-spacing: .15em; text-transform: uppercase; }
+    .meta p { margin: 0; color: #444; font-size: 10px; line-height: 1.55; }
+    .meta strong { color: var(--ink); font-weight: 650; }
+    .chips { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 9px; }
+    .chip { max-width: 100%; overflow: hidden; padding: 5px 7px; border: 1px solid #d8d8d8; border-radius: 6px; background: #f7f7f7; color: #333; font: 9px/1.2 ui-monospace, monospace; text-overflow: ellipsis; white-space: nowrap; }
+    .source { display: inline-block; margin-top: 9px; color: #333; font-size: 9px; text-decoration: none; }
+    .skill-list { display: grid; gap: 7px; }
+    .skill-card { padding: 8px 9px; border: 1px solid #ddd; border-radius: 8px; background: #fafafa; }
+    .skill-card code { display: block; overflow-wrap: anywhere; color: #111; font: 9px/1.35 ui-monospace, monospace; }
+    .skill-card a { display: block; margin-top: 4px; overflow: hidden; color: #666; font-size: 9px; text-decoration: none; text-overflow: ellipsis; white-space: nowrap; }
+    .skill-card a:hover { color: #111; }
+    .source:hover { text-decoration: underline; }
+    .empty-meta { color: #77757a !important; }
+    @media (max-width: 1180px) {
+      .shell { padding: 18px; }
+      header { grid-template-columns: 1fr; }
+      .nav { justify-content: flex-end; }
+      .comparison { grid-template-columns: 1fr; }
+      iframe { height: 68vh; }
+      .meta { height: auto; min-height: 120px; }
+    }
+    @media (max-width: 650px) {
+      .shell { padding: 13px; }
+      .case-query { white-space: normal; }
+      .nav { justify-content: stretch; }
+      .nav button { flex: 0 0 auto; }
+      .nav select { flex: 1; width: 0; min-width: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header>
+      <div>
+        <h1>Visual Skill Selection and Application</h1>
+      </div>
+      <nav class="nav" aria-label="Case navigation">
+        <button id="last" type="button">← Last</button>
+        <label for="case-select" hidden>Choose a comparison case</label>
+        <select id="case-select" aria-label="Choose a comparison case"></select>
+        <button id="next" class="next" type="button">Next →</button>
+      </nav>
+    </header>
+
+    <section class="case-copy">
+      <div class="index" id="case-index">Case 01</div>
+      <div style="min-width:0">
+        <h2 class="case-title" id="case-title"></h2>
+        <p class="case-query" id="case-query"></p>
+      </div>
+    </section>
+
+    <main class="comparison">
+      <article class="result" data-method="control">
+        <div class="result-head">
+          <div class="method"><span class="method-number">01</span><div><strong>No Skill</strong><small>Original prompt only</small></div></div>
+          <a class="open" target="_blank" rel="noopener" aria-label="Open No Skill result in a new tab">↗</a>
+        </div>
+        <div class="frame-wrap"><iframe title="No Skill result"></iframe></div>
+      </article>
+
+      <article class="result" data-method="general">
+        <div class="result-head">
+          <div class="method"><span class="method-number">02</span><div><strong>General Skill</strong><small>UI/UX Pro Max</small></div></div>
+          <a class="open" target="_blank" rel="noopener" aria-label="Open General Skill result in a new tab">↗</a>
+        </div>
+        <div class="frame-wrap"><iframe title="General Skill result"></iframe></div>
+      </article>
+
+      <article class="result ours" data-method="ours">
+        <div class="result-head">
+          <div class="method"><span class="method-number">03</span><div><strong>Ours</strong><small>Web-derived Visual Skill</small></div></div>
+          <a class="open" target="_blank" rel="noopener" aria-label="Open Ours result in a new tab">↗</a>
+        </div>
+        <div class="frame-wrap"><iframe title="Ours result"></iframe></div>
+        <div class="meta" id="ours-meta"></div>
+      </article>
+    </main>
+  </div>
+  <script>
+    const cases = [
+      { id:"world-cup", title:"World Cup Live Experience", query:"Para criar uma página de promoção da copa do mundo, é necessário incluir tabela de pontos em tempo real, condições de guerra em tempo real, reprodução maravilhosa e assim por diante, os problemas de detalhes me ajudam a considerar a melhoria;", skills:["split_flap_live_value_board","center_locked_media_row_over_live_backdrop","aperture_framed_scroll_scrubbed_clip","featured_photo_collapse_into_grid"] },
+      { id:"p-03", title:"Marketing Course Landing Page", query:"Create a marketing course introduction page, including a list of courses and sub-courses, along with some course demonstrations and the results achieved by the students；", sid:"s-01" },
+      { id:"p-06", title:"Premium Auto Parts", query:"Ich möchte eine offizielle Website für eine Marke von Autoteilen erstellen, die den minimalistischen Designstil der Apple-Website aufgreift, um die Professionalität und hochwertige Qualität der Autoteile zu unterstreichen und Besuchern einen direkten Eindruck von der technologischen Leistung und dem Handwerksstandard der Produkte zu vermitteln.", sid:"s-04" },
+      { id:"p-13", title:"Pattern Pinboard", query:"Pinterestのようなボードを作成し、フォールドレイアウト、保存ボタン、ボード整理機能、ピンの詳細表示ポップアップを備え、画像の代わりにCSSパターンを使用します。", sid:null },
+      { id:"p-16", title:"Windows XP Desktop", query:"Please create a web-based Windows XP desktop environment simulation for me. This project should focus on replicating its visual style and core user interaction. **Main functions: ** * **Visual effects: ** Re-create the classic \"Luna\" theme, including the \"Start\" menu, taskbar, desktop icons, and \"Bliss\" wallpaper. * **Window system: ** Implement the functions of opening, closing, minimizing, maximizing, and moving windows. * **Interactivity: ** Build several simple simulation applications (such as Notepad, Minesweeper), and make them run within the window system to demonstrate their functions.", sid:"s-09" },
+      { id:"p-23", title:"Aquarium Dashboard", query:"Build an aquarium dashboard with tank temperature, pH levels, fish count, feeding schedule, filter status, and water quality charts. Pre-populated with sample data.", sid:"s-12" },
+      { id:"p-24", title:"Wind Farm Monitor", query:"I need to create a real-time monitoring dashboard for the wind farm, which will display 3D wind turbine status, power generation charts, real-time wind speed, energy output data, support free data combination display, and include preset sample information and display effects of the wind farm.", sid:"s-13" },
+      { id:"p-33", title:"Fitness Planner", query:"Здравствуйте, я хочу создать для себя красивое приложение для фитнеса. Надеюсь, оно сможет автоматически генерировать план тренировок в соответствии с моими потребностями и помогать мне устанавливать вес, количество подходов и количество повторений в каждом подходе.", sid:"s-16" },
+      { id:"p-35", title:"Personal Finance Dashboard", query:"Create a simple and elegant front-end interface for a personal finance application. Use simulated data or local storage (localStorage) to simulate data persistence, without implementing the login function. The core functions should include: 1. **Main Dashboard:** Display financial overview, such as current balance, total income for the month, and total expenses. 2. **Transaction Management:** Provide a page for listing all transaction records. Users can add new transactions (income or expenditure), as well as edit and delete existing transactions. Each transaction record should at least include description, amount, date, and category. 3. **Data Visualization:** Conduct financial analysis through interactive charts, such as using pie charts to show the distribution of various expenditures, or using bar charts to compare income and expenditure in different periods. 4. **Responsive Design:** The interface design should be simple and intuitive, and be able to adapt to different screen sizes, ensuring a smooth user experience on both desktop and mobile devices.", sid:"s-18" },
+      { id:"p-45", title:"Origami Instruction Studio", query:"Create a folding paper instruction program that includes step-by-step folding instructions, paper preview, crease patterns, various models, and animated folding demonstrations. It can also be exported as a tutorial.", sid:"s-23" },
+      { id:"p-56", title:"Bouncing Ball Physics", query:"Create an SVG animation where a yellow ball bounces within a certain shape. Make the shape rotate slowly and ensure that the ball stays within the shape. Support various shapes, and the elasticity of the ball can be adjusted.", sid:"s-29" },
+      { id:"p-57", title:"3D Flame Simulation", query:"Create a realistic 3D flame simulation effect, including flickering flames, rising embers particles, thermal deformation effects, and adjustable intensity. Automatically starts.", sid:"s-26" },
+      { id:"p-58", title:"Underwater Coral Reef", query:"Create a vivid and realistic 3D underwater coral reef scene: The tentacles of the coral towers sway with the waves, schools of fish gather and disperse at times, luminous jellyfish slowly rise to the surface, the sandy seabed ripples, and the floating bubble particles together create a serene and peaceful marine atmosphere.", sid:"s-28" },
+      { id:"p-59", title:"Intermittent Geyser", query:"Using 3D technology, create a 3D simulation page of an intermittent spring, featuring pressure accumulation, dramatic eruption, steam clouds, water mist, periodic timing and geological wonders. Support automatic and manual design parameters, and debug the 3D animation of the model.", sid:null },
+      { id:"p-62", title:"5×5×5 Rubik’s Cube", query:"5×5×5のルービックキューブシミュレータを作ってください\n・アニメーション3D表示\n・シャッフル機能\n・自動揃え機能\n・各面の色は白色,黄色,青色,緑色,赤色,オレンジ色", sid:"s-32" },
+      { id:"p-63", title:"Interactive 3D Earth", query:"ساعدني في إنشاء موقع أو تطبيق يعرض الأرض بتنسيق ثلاثي الأبعاد. يجب أن تكون نقوش وتفاصيل أسطح الأرض عالية الدقة، مع الحفاظ على التماثل تمامًا عند التكبير، وإذا أمكن، ينبغي أن يكون هناك تأثير واضح للضخامة والانحدار ثلاثي الأبعاد. يجب أن يظهر نصف الكرة الأرضية المظلم (النصف المظلم) تأثيرات إضاءة المدن. يجب دعم وظائف التكبير (Zoom-in) والتصغير (Zoom-out). يمكنني وضع علامة (pin) على موقع مهم على سطح الأرض، بحيث يبقى زاوية الرؤية ثابتة عند هذا الموقع كل مرة أُطلق فيها البرنامج. أما الأماكن التي أشير إليها فهي مناطق زمنية مهمة حول العالم. على سبيل المثال، إذا انقرت على دبي؛", sid:"s-33" }
+    ];
+    let skillSources = {};
+    let active=0;
+    function resultUrl(c, method) {
+      const publicId = `case-${String(cases.indexOf(c) + 1).padStart(2, "0")}`;
+      const folder = method === "control" ? "no-skill" : method === "general" ? "general-skill" : "ours";
+      return `./cases/${publicId}/${folder}/`;
+    }
+    function setResult(method,url) {
+      const card=document.querySelector(`[data-method="${method}"]`), frame=card.querySelector("iframe"), open=card.querySelector(".open");
+      if(url){ frame.removeAttribute("srcdoc"); frame.src=url; frame.hidden=false; open.href=url; open.hidden=false; }
+      else { frame.removeAttribute("src"); frame.srcdoc="<style>body{margin:0;display:grid;place-items:center;height:100vh;background:#f3f1eb;color:#777;font:14px system-ui;text-align:center}p{max-width:280px;line-height:1.6}</style><p>This case is being prepared for the current General Skill run.</p>"; frame.hidden=false; open.hidden=true; }
+    }
+    function render(i) {
+      active=(i+cases.length)%cases.length; const c=cases[active];
+      document.querySelector("#case-select").value=String(active);
+      document.querySelector("#case-index").textContent=`Case ${String(active+1).padStart(2,"0")}`;
+      document.querySelector("#case-title").textContent=c.title;
+      document.querySelector("#case-query").textContent=c.query;
+      ["control","general","ours"].forEach(m=>setResult(m,resultUrl(c,m)));
+      let entries;
+      if (c.id === "world-cup") {
+        entries = [
+          {skill:"split_flap_live_value_board", title:"Stock Ticker Dashboard", url:"https://v0.app/templates/JqfDUlSthgR"},
+          {skill:"center_locked_media_row_over_live_backdrop", title:"Orken", url:"https://orkenworld.com"},
+          {skill:"aperture_framed_scroll_scrubbed_clip", title:"Scroll-Synced Video with Timed Cues and Keyhole Effect", url:"https://codepen.io/luis-lessrain/full/zxGjErP"},
+          {skill:"featured_photo_collapse_into_grid", title:"Fullscreen Clip Animation", url:"https://tympanus.net/Development/FullscreenClipEffect/"}
+        ];
+      } else {
+        const seen = new Set();
+        entries = (skillSources[c.id] || []).filter(item => {
+          const key = `${item.skill}::${item.case_id || item.url || ""}`;
+          if (seen.has(key)) return false;
+          seen.add(key); return true;
+        });
+      }
+      const cards = entries.map(item => `<div class="skill-card"><code>${item.skill}</code>${item.url ? `<a href="${item.url}" target="_blank" rel="noopener">${item.title || item.case_id || item.url} ↗</a>` : ""}</div>`).join("");
+      document.querySelector("#ours-meta").innerHTML=`<div class="meta-label">Web-derived visual skills</div><div class="skill-list">${cards || '<p class="empty-meta">No public source record.</p>'}</div>`;
+      history.replaceState(null,"",`#case-${String(active+1).padStart(2,"0")}`);
+    }
+    const caseSelect=document.querySelector("#case-select");
+    caseSelect.innerHTML=cases.map((c,i)=>`<option value="${i}">Case ${String(i+1).padStart(2,"0")} — ${c.title}</option>`).join("");
+    caseSelect.onchange=()=>render(Number(caseSelect.value));
+    document.querySelector("#last").onclick=()=>render(active-1);
+    document.querySelector("#next").onclick=()=>render(active+1);
+    addEventListener("keydown",e=>{ if(e.key==="ArrowLeft") render(active-1); if(e.key==="ArrowRight") render(active+1); });
+    fetch("./skill_sources.json").then(r=>r.ok?r.json():{}).then(data=>{
+      skillSources=data;
+      const match=location.hash.match(/^#case-(\d{2})$/);
+      render(match ? Math.max(0, Math.min(cases.length-1, Number(match[1])-1)) : 0);
+    }).catch(()=>render(0));
+  </script>
+</body>
+</html>
